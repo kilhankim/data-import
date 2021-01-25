@@ -1,3 +1,6 @@
+Reference : https://github.com/datacharmer/test_db
+
+
 [ec2-user@ip-10-0-1-240 data-import]$ cat load_employees.dump | sed 's/(//' | awk -F ',' '{ print "(" NR "," $2  "," $3 "," $4 "," $5 "," $6 ","  }' | sed 's/;,/,/' > data1.dump
 [ec2-user@ip-10-0-1-240 data-import]$ cat data1.dump | sed 's/(//' | awk -F ',' '{ print "(" $1+300025"," $2  "," $3 "," $4 "," $5 "," $6 ","  }' | sed 's/;,/,/' > data2.dump
 [ec2-user@ip-10-0-1-240 data-import]$ cat data2.dump | sed 's/(//' | awk -F ',' '{ print "(" $1+300025"," $2  "," $3 "," $4 "," $5 "," $6 ","  }' | sed 's/;,/,/' > data3.dump
